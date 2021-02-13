@@ -91,19 +91,19 @@ public class ItemBuilder {
 	}
 
 	public static boolean isBoots(Material type) {
-		return type == Material.DIAMOND_BOOTS || type == Material.IRON_BOOTS || type == Material.GOLD_BOOTS || type == Material.CHAINMAIL_BOOTS || type == Material.LEATHER_BOOTS;
+		return type == Material.DIAMOND_BOOTS || type == Material.IRON_BOOTS || type == Material.GOLDEN_BOOTS || type == Material.CHAINMAIL_BOOTS || type == Material.LEATHER_BOOTS;
 	}
 
 	public static boolean isChestplate(Material type) {
-		return type == Material.DIAMOND_CHESTPLATE || type == Material.IRON_CHESTPLATE || type == Material.GOLD_CHESTPLATE || type == Material.CHAINMAIL_CHESTPLATE || type == Material.LEATHER_CHESTPLATE;
+		return type == Material.DIAMOND_CHESTPLATE || type == Material.IRON_CHESTPLATE || type == Material.GOLDEN_CHESTPLATE || type == Material.CHAINMAIL_CHESTPLATE || type == Material.LEATHER_CHESTPLATE;
 	}
 
 	public static boolean isHelmet(Material type) {
-		return type == Material.DIAMOND_HELMET || type == Material.SKULL_ITEM || type == Material.PUMPKIN || type == Material.IRON_HELMET || type == Material.GOLD_HELMET || type == Material.CHAINMAIL_HELMET || type == Material.LEATHER_HELMET;
+		return type == Material.DIAMOND_HELMET || type == Material.SKELETON_SKULL || type == Material.PUMPKIN || type == Material.IRON_HELMET || type == Material.GOLDEN_HELMET || type == Material.CHAINMAIL_HELMET || type == Material.LEATHER_HELMET;
 	}
 
 	public static boolean isLeggings(Material type) {
-		return type == Material.DIAMOND_LEGGINGS || type == Material.IRON_LEGGINGS || type == Material.GOLD_LEGGINGS || type == Material.CHAINMAIL_LEGGINGS || type == Material.LEATHER_LEGGINGS;
+		return type == Material.DIAMOND_LEGGINGS || type == Material.IRON_LEGGINGS || type == Material.GOLDEN_LEGGINGS || type == Material.CHAINMAIL_LEGGINGS || type == Material.LEATHER_LEGGINGS;
 	}
 
 	private ItemBuilder addEnchantment(Enchantment enchant, int level) {

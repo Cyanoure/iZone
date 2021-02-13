@@ -37,9 +37,11 @@ public class zmodCommand extends BaseCommand {
 	private InventoryMenuListener settingsMenuListener;
 	private InventoryMenuListener flagsMenuListener;
 	private InventoryMenuListener membersMenuListener;
+	private iZone iZoneInstance;
 
 	public zmodCommand(iZone instance) {
 		super(instance);
+		iZoneInstance = instance;
 		this.coms.add(new listCommand(instance));
 		this.coms.add(new whoCommand(instance));
 		this.coms.add(new infoCommand(instance));
@@ -67,18 +69,17 @@ public class zmodCommand extends BaseCommand {
 			}
 
 			ItemStack item = event.getInventory().getItem(event.getSlot());
-			if (item.getType() == Material.SIGN) {
+			if (item.getType().name().contains("SIGN")) {
 				InventoryMenuBuilder imb = new InventoryMenuBuilder(InventoryType.PLAYER).withTitle(tl("gui_zone_management") + " - " + tl("gui_flags"));
-
 				int i = 0;
 				for (Flags flag : zone.getAllFlags()) {
-					imb.withItem(i, new ItemBuilder(Material.SIGN).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + flag.getName()).addLore(ChatColor.GREEN + "" + ChatColor.BOLD + (zone.hasFlag(flag) ? tl("gui_on") : ChatColor.RED + "" + ChatColor.BOLD + tl("gui_off"))).build());
+					imb.withItem(i, new ItemBuilder(Material.OAK_SIGN).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + flag.getName()).addLore(ChatColor.GREEN + "" + ChatColor.BOLD + (zone.hasFlag(flag) ? tl("gui_on") : ChatColor.RED + "" + ChatColor.BOLD + tl("gui_off"))).build());
 					i++;
 				}
 
 				imb.show(player);
 				imb.onInteract(flagsMenuListener, ClickType.LEFT);
-			} else if (item.getType() == Material.SKULL_ITEM) {
+			} else if (item.getType() == Material.SKELETON_SKULL) { // ? idk
 				InventoryMenuBuilder imb = new InventoryMenuBuilder(InventoryType.PLAYER).withTitle(tl("gui_zone_management") + " - " + tl("gui_allowed_players"));
 
 				int i = 0;
@@ -86,7 +87,7 @@ public class zmodCommand extends BaseCommand {
 					if (member.startsWith("o:")) {
 						continue;
 					}
-					imb.withItem(i, new ItemBuilder(Material.SKULL_ITEM, (short) 3).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + member).addLore(ChatColor.RED + "" + ChatColor.BOLD + tl("gui_remove_member_lore")).build());
+					imb.withItem(i, new ItemBuilder(Material.SKELETON_SKULL, (short) 3).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + member).addLore(ChatColor.RED + "" + ChatColor.BOLD + tl("gui_remove_member_lore")).build());
 					i++;
 				}
 
@@ -144,7 +145,7 @@ public class zmodCommand extends BaseCommand {
 					}
 
 					player.sendMessage(iZone.getPrefix() + tl("flag_set", flag.getName(), (zone.hasFlag(flag) ? ChatColor.GREEN + "" + ChatColor.BOLD + tl("gui_on") : ChatColor.RED + "" + ChatColor.BOLD + tl("gui_off"))));
-					event.getInventory().setItem(event.getSlot(), new ItemBuilder(Material.SIGN).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + flag.getName()).addLore(ChatColor.GREEN + "" + ChatColor.BOLD + (zone.hasFlag(flag) ? tl("gui_on") : ChatColor.RED + "" + ChatColor.BOLD + tl("gui_off"))).build());
+					event.getInventory().setItem(event.getSlot(), new ItemBuilder(Material.OAK_SIGN).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + flag.getName()).addLore(ChatColor.GREEN + "" + ChatColor.BOLD + (zone.hasFlag(flag) ? tl("gui_on") : ChatColor.RED + "" + ChatColor.BOLD + tl("gui_off"))).build());
 
 					player.updateInventory();
 				}
@@ -203,6 +204,12 @@ public class zmodCommand extends BaseCommand {
 
 		if (cmd.length == 1) {
 			ArrayList<Zone> zones = ZoneManager.getZones().stream().filter(zone -> zone.getOwners().contains(player.getName())).collect(Collectors.toCollection(ArrayList::new));
+
+			if(zones.size() == 0){ // print help if no claimed zones
+				helpCommand helpCMD = new helpCommand(iZoneInstance);
+				helpCMD.onCommand(player, cmd);
+				return;
+			}
 
 			ArrayList<ItemStack> items = new ArrayList<>();
 			for (Zone zone1 : zones) {
@@ -266,8 +273,8 @@ public class zmodCommand extends BaseCommand {
 				}
 
 				InventoryMenuBuilder imb = new InventoryMenuBuilder(9, tl("gui_zone_management"));
-				imb.withItem(0, new ItemBuilder(Material.SIGN).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + tl("gui_button_flags")).addLore(ChatColor.GREEN + "" + ChatColor.BOLD + tl("gui_set_flag_lore")).build());
-				imb.withItem(4, new ItemBuilder(Material.SKULL_ITEM, (short) 3).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + tl("gui_button_allowed_players")).addLore(ChatColor.GREEN + "" + ChatColor.BOLD + tl("gui_add_players_lore")).build());
+				imb.withItem(0, new ItemBuilder(Material.OAK_SIGN).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + tl("gui_button_flags")).addLore(ChatColor.GREEN + "" + ChatColor.BOLD + tl("gui_set_flag_lore")).build());
+				imb.withItem(4, new ItemBuilder(Material.SKELETON_SKULL, (short) 3).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + tl("gui_button_allowed_players")).addLore(ChatColor.GREEN + "" + ChatColor.BOLD + tl("gui_add_players_lore")).build());
 
 				imb.withItem(8, new ItemBuilder(Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) ? Material.BARRIER : Material.LAVA_BUCKET).setTitle(ChatColor.RED + "" + ChatColor.BOLD + tl("gui_button_delete_zone")).addLore(ChatColor.RED + "" + ChatColor.BOLD + tl("gui_remove_zone")).build());
 

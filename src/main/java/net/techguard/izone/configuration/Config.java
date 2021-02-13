@@ -141,8 +141,8 @@ public class Config implements Configurable {
 		get().set("locale", "en");
 		get().set("listeners.healthListener", true);
 
-		get().set("tools.check", Material.WOOD_SWORD.toString());
-		get().set("tools.define", Material.WOOD_SPADE.toString());
+		get().set("tools.check", Material.WOODEN_SWORD.toString());
+		get().set("tools.define", Material.WOODEN_SHOVEL.toString());
 
 		get().set("particles.enabled", false);
 		get().set("particles.particle", "FIREWORKS_SPARK");

@@ -297,7 +297,7 @@ public class Zone {
 		{
 			if (item != null)
 			{
-				items.add("(" + item.getTypeId() + ", " + item.getAmount() + ", " + item.getData().getData() + ")");
+				items.add("(" + item.getType().name() + ", " + item.getAmount() + ", " + item.getData().getData() + ")");
 			}
 		}
 		setProperty("inventory." + a.toString(), items);

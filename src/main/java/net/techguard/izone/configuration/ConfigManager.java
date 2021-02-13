@@ -80,11 +80,11 @@ public class ConfigManager {
 	}
 
 	public static String getCheckTool() {
-		return mainConfig.get().getString("tools.check", Material.WOOD_SWORD.toString());
+		return mainConfig.get().getString("tools.check", Material.WOODEN_SWORD.toString());
 	}
 
 	public static String getDefineTool() {
-		return mainConfig.get().getString("tools.define", Material.WOOD_SPADE.toString());
+		return mainConfig.get().getString("tools.define", Material.WOODEN_SHOVEL.toString());
 	}
 
 	public static int getHealingTime() {

@@ -32,7 +32,7 @@ public class Variables {
 
 	public static ItemStack getMyHouseItem() {
 		if (myHouseItem == null)
-			myHouseItem = new ItemStack(Material.WOOD_DOOR);
+			myHouseItem = new ItemStack(Material.OAK_DOOR);
 		return myHouseItem;
 	}
 }

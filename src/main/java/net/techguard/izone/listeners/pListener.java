@@ -85,17 +85,18 @@ public class pListener implements Listener {
 		}
 
 		if ((set != -1 && ConfigManager.getAutoExpandEnabled()) && (sett.getBorder1() != null && sett.getBorder2() != null)) {
-			if (sett.getBorder1().getY() == sett.getBorder2().getY()) {
+			//if (sett.getBorder1().getY() == sett.getBorder2().getY()) {
+			if (sett.getBorder1().getWorld().equals(sett.getBorder2().getWorld())) {
 				int maxHeight = (int) sett.getMaxSize().getY();
 				if (maxHeight == -1) {
 					maxHeight = player.getWorld().getMaxHeight();
 				}
 
-				player.playSound(player.getLocation(), Sound.BLOCK_NOTE_PLING, 1.0F, 1.0F);
+				player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1.0F, 1.0F);
 
 				InventoryMenuBuilder imb = new InventoryMenuBuilder(27).withTitle(tl("gui_autoexpand"));
-				imb.withItem(11, new ItemBuilder(Material.STAINED_GLASS_PANE, (short) 14).setTitle(tl("gui_no")).build());
-				imb.withItem(15, new ItemBuilder(Material.STAINED_GLASS_PANE, (short) 13).setTitle(tl("gui_yes")).build());
+				imb.withItem(11, new ItemBuilder(Material.RED_STAINED_GLASS, (short) 14).setTitle(tl("gui_no")).build());
+				imb.withItem(15, new ItemBuilder(Material.GREEN_STAINED_GLASS, (short) 13).setTitle(tl("gui_yes")).build());
 				imb.show(player);
 
 				int finalMaxHeight = maxHeight;
@@ -123,12 +124,14 @@ public class pListener implements Listener {
 				if (block == null) {
 					return;
 				}
-				if (block.getType() == Material.SOIL) {
+				if (block.getType() == Material.FARMLAND) {
 					player.sendMessage(iZone.getPrefix() + tl("zone_protected"));
 					event.setUseInteractedBlock(org.bukkit.event.Event.Result.DENY);
 					event.setCancelled(true);
 
-					block.setTypeIdAndData(block.getType().getId(), block.getData(), true);
+					block.setType(block.getType());
+					block.setBlockData(block.getBlockData());
+					//block.setTypeIdAndData(block.getType().getId(), block.getData(), true);
 				}
 			}
 		}

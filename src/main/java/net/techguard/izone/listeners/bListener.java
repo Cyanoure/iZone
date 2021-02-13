@@ -244,7 +244,7 @@ public class bListener implements Listener {
 		BlockState after = event.getNewState();
 		Zone       zone  = ZoneManager.getZone(before.getLocation());
 
-		if ((zone != null) && (zone.hasFlag(Flags.MELT)) && (((before.getType() == Material.SNOW) && (after.getType() == Material.AIR)) || ((before.getType() == Material.ICE) && (after.getType() == Material.STATIONARY_WATER)))) {
+		if ((zone != null) && (zone.hasFlag(Flags.MELT)) && (((before.getType() == Material.SNOW) && (after.getType() == Material.AIR)) || ((before.getType() == Material.ICE) && (after.getType() == Material.WATER)))) {
 			event.setCancelled(true);
 		}
 	}
@@ -265,10 +265,10 @@ public class bListener implements Listener {
 		if (zone != null) {
 			if (isZone != null && isZone == zone) return;
 
-			if ((block.getType() == Material.WATER || block.getType() == Material.STATIONARY_WATER) && zone.hasFlag(Flags.WATER_FLOW)) {
+			if (block.getType() == Material.WATER && zone.hasFlag(Flags.WATER_FLOW)) {
 				event.setCancelled(true);
 			}
-			if ((block.getType() == Material.LAVA || block.getType() == Material.STATIONARY_LAVA) && zone.hasFlag(Flags.LAVA_FLOW)) {
+			if (block.getType() == Material.LAVA && zone.hasFlag(Flags.LAVA_FLOW)) {
 				event.setCancelled(true);
 			}
 		}
