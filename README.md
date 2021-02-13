@@ -528,8 +528,8 @@ locale: hu
 listeners:
   healthListener: true
 tools:
-  check: WOOD_SWORD
-  define: WOOD_SPADE
+  check: WOODEN_SWORD
+  define: WOODEN_SHOVEL
 particles:
   enabled: true
   particle: FIREWORKS_SPARK
