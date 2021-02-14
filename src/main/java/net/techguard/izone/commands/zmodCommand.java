@@ -276,7 +276,7 @@ public class zmodCommand extends BaseCommand {
 				imb.withItem(0, new ItemBuilder(Material.OAK_SIGN).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + tl("gui_button_flags")).addLore(ChatColor.GREEN + "" + ChatColor.BOLD + tl("gui_set_flag_lore")).build());
 				imb.withItem(4, new ItemBuilder(Material.SKELETON_SKULL, (short) 3).setTitle(ChatColor.WHITE + "" + ChatColor.BOLD + tl("gui_button_allowed_players")).addLore(ChatColor.GREEN + "" + ChatColor.BOLD + tl("gui_add_players_lore")).build());
 
-				imb.withItem(8, new ItemBuilder(Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) ? Material.BARRIER : Material.LAVA_BUCKET).setTitle(ChatColor.RED + "" + ChatColor.BOLD + tl("gui_button_delete_zone")).addLore(ChatColor.RED + "" + ChatColor.BOLD + tl("gui_remove_zone")).build());
+				imb.withItem(8, new ItemBuilder(/*Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) ? */Material.BARRIER/* : Material.LAVA_BUCKET).setTitle(ChatColor.RED + "" + ChatColor.BOLD + tl("gui_button_delete_zone")).addLore(ChatColor.RED + "" + ChatColor.BOLD + tl("gui_remove_zone")*/).build());
 
 				imb.show(player);
 				imb.onInteract(settingsMenuListener, ClickType.LEFT);

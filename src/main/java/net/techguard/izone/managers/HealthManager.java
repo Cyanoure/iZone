@@ -50,10 +50,10 @@ public class HealthManager implements Runnable {
 				{
 					p2.damage(ConfigManager.getHurtingAmount());
 
-					if (Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1))
-					{
+					/*if (Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1))
+					{*/
 						p2.playSound(p2.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1, 0);
-					}
+					//}
 				}
 			}
 		}

@@ -32,21 +32,11 @@ repositories {
 }
 
 dependencies {
-	//compile group: 'com.github.inventivetalent', name: 'reflectionhelper', version:'1.16.0-SNAPSHOT'
-	compile group: 'com.github.InventivetalentDev', name: 'ReflectionHelper', version:'395cfea950'
-	//compile group: 'com.github.Cyanoure', name: 'ReflectionHelper', version:'1.16.0-SNAPSHOT'
-	//compile group: 'com.github.inventivetalent', name: 'particleapi', version:'2.1.1'
+	compile group: 'com.github.InventivetalentDev', name: 'ReflectionHelper', version:'1.14.0-SNAPSHOT'
 	compile group: 'com.github.InventivetalentDev', name: 'ParticleAPI', version:'65b701708a'
-	//compile group: 'com.github.TryHardDood', name: 'BossBarAPI', version:'dafa36593c'
-	//compile group: 'org.inventivetalent', name:'bossbarapi', version:'2.4.1'
-	//compile group: 'com.github.Cyanoure', name:'BossBarAPI', version:'2.4.3-SNAPSHOT'
-	//compile group: 'com.github.apollosoftware', name:'BossBarAPI', version:'2.4.3-SNAPSHOT'
 	compile group: 'com.github.InventiveTalentDev', name:'BossBarAPI', version:'2.4.3-SNAPSHOT'
-	//compile group: 'org.spigotmc', name: 'spigot-api', version:'1.11.2-R0.1-SNAPSHOT'
 	compile group: 'org.spigotmc', name: 'spigot-api', version:'1.16.5-R0.1-SNAPSHOT'
-	//compile group: 'net.milkbowl.vault', name: 'VaultAPI', version:'1.6'
 	compile group: 'net.milkbowl.vault', name: 'VaultAPI', version:'1.7'
-	//compile group: 'net.milkbowl.vault', name: 'Vault', version:'1.6.6'
 }
 
 apply plugin: "com.github.johnrengelman.shadow"
@@ -55,9 +45,9 @@ shadowJar {
     archiveName = "${baseName}.${extension}"
 
 	dependencies {
-		include(dependency('com.github.Cyanoure:ReflectionHelper'))
+		include(dependency('com.github.InventivetalentDev:ReflectionHelper'))
 		include(dependency('com.github.InventivetalentDev:ParticleAPI'))
-		include(dependency('com.github.Cyanoure:BossBarAPI'))
+		include(dependency('com.github.InventivetalentDev:BossBarAPI'))
 	}
 
 	relocate 'org.inventivetalent.bossbar', 'net.techguard.izone.Utils.BossBarAPI'

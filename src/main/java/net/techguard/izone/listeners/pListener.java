@@ -41,7 +41,7 @@ public class pListener implements Listener {
 
 	@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
 	public void onPlayerInteract(PlayerInteractEvent event) {
-		if (Minecraft.VERSION.newerThan(Minecraft.Version.v1_9_R1) && event.getHand() != EquipmentSlot.HAND) {
+		if (/*Minecraft.VERSION.newerThan(Minecraft.Version.v1_9_R1) && */event.getHand() != EquipmentSlot.HAND) {
 			return;
 		}
 
@@ -51,7 +51,7 @@ public class pListener implements Listener {
 		}
 
 		Settings  sett   = Settings.getSett(player);
-		ItemStack inHand = Minecraft.VERSION.newerThan(Minecraft.Version.v1_9_R1) ? player.getInventory().getItemInMainHand() : player.getItemInHand();
+		ItemStack inHand = /*Minecraft.VERSION.newerThan(Minecraft.Version.v1_9_R1) ? */player.getInventory().getItemInMainHand()/* : player.getItemInHand()*/;
 		if (inHand == null) {
 			return;
 		}
@@ -178,7 +178,7 @@ public class pListener implements Listener {
 				String s = fzone.getFarewell();
 				player.sendMessage(ChatColor.GOLD + "" + ChatColor.GRAY + fzone.getName() + " > " + ChatColor.YELLOW + ChatColor.translateAlternateColorCodes('&', s));
 
-				if (Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) && ConfigManager.getTitlesEnabled()) {
+				if (/*Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) && */ConfigManager.getTitlesEnabled()) {
 					MessagesAPI.sendTitle(player, ConfigManager.getTitleFadeIn(), ConfigManager.getTitleStay(), ConfigManager.getTitleFadeOut(), "", ChatColor.YELLOW + s);
 				}
 			}
@@ -217,7 +217,7 @@ public class pListener implements Listener {
 			if (tzone.hasFlag(Flags.WELCOME)) {
 				String s = tzone.getWelcome();
 				player.sendMessage(ChatColor.GOLD + "" + ChatColor.GRAY + tzone.getName() + " > " + ChatColor.YELLOW + ChatColor.translateAlternateColorCodes('&', s));
-				if (Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) && ConfigManager.getTitlesEnabled()) {
+				if (/*Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) && */ConfigManager.getTitlesEnabled()) {
 					MessagesAPI.sendTitle(player, ConfigManager.getTitleFadeIn(), ConfigManager.getTitleStay(), ConfigManager.getTitleFadeOut(), "", ChatColor.YELLOW + s);
 				}
 			}
@@ -294,7 +294,7 @@ public class pListener implements Listener {
 			if (fzone.hasFlag(Flags.FAREWELL)) {
 				String s = fzone.getFarewell();
 				player.sendMessage(ChatColor.GRAY + "" + ChatColor.BOLD + fzone.getName() + " > " + ChatColor.YELLOW + ChatColor.translateAlternateColorCodes('&', s));
-				if (Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) && ConfigManager.getTitlesEnabled()) {
+				if (/*Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) && */ConfigManager.getTitlesEnabled()) {
 					MessagesAPI.sendTitle(player, ConfigManager.getTitleFadeIn(), ConfigManager.getTitleStay(), ConfigManager.getTitleFadeOut(), "", ChatColor.YELLOW + s);
 				}
 			}
@@ -336,7 +336,7 @@ public class pListener implements Listener {
 			if (tzone.hasFlag(Flags.WELCOME)) {
 				String s = tzone.getWelcome();
 				player.sendMessage(ChatColor.GRAY + "" + ChatColor.BOLD + tzone.getName() + " > " + ChatColor.YELLOW + ChatColor.translateAlternateColorCodes('&', s));
-				if (Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) && ConfigManager.getTitlesEnabled()) {
+				if (/*Minecraft.VERSION.newerThan(Minecraft.Version.v1_8_R1) && */ConfigManager.getTitlesEnabled()) {
 					MessagesAPI.sendTitle(player, ConfigManager.getTitleFadeIn(), ConfigManager.getTitleStay(), ConfigManager.getTitleFadeOut(), "", ChatColor.YELLOW + s);
 				}
 			}
