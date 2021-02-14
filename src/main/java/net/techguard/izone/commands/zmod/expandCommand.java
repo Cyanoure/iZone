@@ -30,6 +30,15 @@ public class expandCommand extends zmodBase {
 			}
 			BlockFace  dir          = BlockFace.SELF;
 			Location[] newerBorders = {zone.getBorder1(), zone.getBorder2()};
+			try{
+				if(Integer.parseInt(cmd[3]) > 1000000000){
+					player.sendMessage(getError(0));
+					return;
+				}
+			}catch (Exception e){
+				player.sendMessage(getError(0));
+				return;
+			}
 			Integer    size         = Integer.parseInt(cmd[3]);
 
 			if (cmd[4].equalsIgnoreCase("up"))
@@ -86,31 +95,31 @@ public class expandCommand extends zmodBase {
 			}
 			else if (dir == BlockFace.NORTH)
 			{
-				int      i   = zone.getBorder1().getBlockX() - size;
-				Location cur = zone.getBorder1().clone();
-				cur.setX(i);
-				newerBorders[0] = cur;
-			}
-			else if (dir == BlockFace.EAST)
-			{
 				int      i   = zone.getBorder1().getBlockZ() - size;
 				Location cur = zone.getBorder1().clone();
 				cur.setZ(i);
 				newerBorders[0] = cur;
 			}
-			else if (dir == BlockFace.SOUTH)
+			else if (dir == BlockFace.EAST)
 			{
 				int      i   = zone.getBorder2().getBlockX() + size;
 				Location cur = zone.getBorder2().clone();
 				cur.setX(i);
 				newerBorders[1] = cur;
 			}
-			else if (dir == BlockFace.WEST)
+			else if (dir == BlockFace.SOUTH)
 			{
 				int      i   = zone.getBorder2().getBlockZ() + size;
 				Location cur = zone.getBorder2().clone();
 				cur.setZ(i);
 				newerBorders[1] = cur;
+			}
+			else if (dir == BlockFace.WEST)
+			{
+				int      i   = zone.getBorder1().getBlockX() - size;
+				Location cur = zone.getBorder1().clone();
+				cur.setX(i);
+				newerBorders[0] = cur;
 			}
 			String permission = ZoneManager.checkSizePermission(player, newerBorders);
 			if (permission.startsWith("size"))

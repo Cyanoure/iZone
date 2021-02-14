@@ -46,7 +46,7 @@ public class allowCommand extends zmodBase {
 					}
 				}
 				zone.Add(target);
-				player.sendMessage(iZone.getPrefix() + tl("zone_adduser", player));
+				player.sendMessage(iZone.getPrefix() + tl("zone_adduser", target));
 			}
 			else
 			{

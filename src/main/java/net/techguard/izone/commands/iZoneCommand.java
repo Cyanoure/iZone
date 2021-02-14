@@ -30,7 +30,8 @@ public class iZoneCommand extends BaseCommand {
 				}
 			}
 		}
-		player.sendMessage(iZone.getPrefix() + tl("chat_version", this.plugin.getDescription().getName(), (this.plugin.getDescription().getAuthors().get(0) + ", " + this.plugin.getDescription().getAuthors().get(1))));
+
+		player.sendMessage(iZone.getPrefix() + tl("chat_version", this.plugin.getDescription().getName(), String.join(", ",this.plugin.getDescription().getAuthors())));
 	}
 
 	public void onSystemCommand(ConsoleCommandSender player, String[] cmd) {
@@ -44,7 +45,7 @@ public class iZoneCommand extends BaseCommand {
 				player.sendMessage(iZone.getPrefix() + tl("chat_reload", iZone.instance.getDescription().getVersion()));
 			}
 		}
-		player.sendMessage(iZone.getPrefix() + tl("chat_version", this.plugin.getDescription().getName(), (this.plugin.getDescription().getAuthors().get(0) + ", " + this.plugin.getDescription().getAuthors().get(1))));
+		player.sendMessage(iZone.getPrefix() + tl("chat_version", this.plugin.getDescription().getName(), String.join(", ",this.plugin.getDescription().getAuthors())));
 	}
 
 	protected String[] getUsage() {

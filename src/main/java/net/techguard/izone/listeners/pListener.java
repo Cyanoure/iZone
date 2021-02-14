@@ -139,8 +139,12 @@ public class pListener implements Listener {
 
 	private void autoExpandZone(Player player, Location defaultLocation, int finalSet, int maxHeight) {
 		Settings settings = Settings.getSett(player);
-		settings.setBorder(finalSet, new Location(defaultLocation.getWorld(), defaultLocation.getBlockX(), maxHeight, defaultLocation.getBlockZ()));
-		System.out.println(settings.getBorder1().toString());
+		Location b1 = settings.getBorder1();
+		Location b2 = settings.getBorder2();
+		settings.setBorder(1,new Location(defaultLocation.getWorld(),b1.getBlockX(), maxHeight, b1.getBlockZ()));
+		settings.setBorder(2,new Location(defaultLocation.getWorld(),b2.getBlockX(),0, b2.getBlockZ()));
+		//settings.setBorder(finalSet, new Location(defaultLocation.getWorld(), defaultLocation.getBlockX(), maxHeight, defaultLocation.getBlockZ()));
+		//System.out.println(settings.getBorder1().toString());
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
