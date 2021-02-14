@@ -42,7 +42,7 @@
 <ol>
 	<li>Download
 		<span>&nbsp;</span>
-		<a href="https://www.spigotmc.org/resources/izone.23349/">iZone</a>
+		<a href="https://www.spigotmc.org/resources/izone-reloaded.88996/">iZone Reloaded</a>
 	</li>
 	<li>Make sure your server is not running.</li>
 	<li>Copy the .jar file into your plugins directory.</li>
