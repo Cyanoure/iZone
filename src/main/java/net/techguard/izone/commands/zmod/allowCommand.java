@@ -64,11 +64,11 @@ public class allowCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"allow", " <zone> <player>", "Add player to zone list"};
+		return new String[]{"allow", " <"+tl("help_param_zone")+"> <"+tl("help_param_player")+">", tl("help_allow")};
 	}
 
 	public String getError(int i) {
-		return "§cUsage: /zmod allow <zone> <player>";
+		return "§c"+tl("command_usage")+": /zmod allow <"+tl("help_param_zone")+"> <"+tl("help_param_player")+">";
 	}
 
 	public String getPermission() {

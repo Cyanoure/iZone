@@ -26,7 +26,6 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.inventivetalent.reflection.minecraft.Minecraft;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -71,7 +70,7 @@ public class iZone extends JavaPlugin {
 			Class.forName("net.md_5.bungee.api.ChatColor");
 		} catch (ClassNotFoundException e) {
 			getLogger().info("- Error loading iZone v" + this.getDescription().getVersion() + ".");
-			getLogger().info("Supported Minecraft versions are Spigot 1.7, 1.8, 1.9, 1.10 and 1.11");
+			getLogger().info("Supported Minecraft versions are Spigot 1.14.x-1.16.x");
 			getServer().getPluginManager().disablePlugin(this);
 			return;
 		}

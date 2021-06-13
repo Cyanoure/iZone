@@ -18,7 +18,9 @@ import org.bukkit.event.hanging.HangingPlaceEvent;
 import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.projectiles.ProjectileSource;
 
 import java.util.ArrayList;
@@ -99,14 +101,51 @@ public class eListener implements Listener {
 		Zone zone = ZoneManager.getZone(player.getLocation());
 
 		if (zone != null) {
-			if ((zone.hasFlag(Flags.DEATHDROP)) || (zone.hasFlag(Flags.SAFEDEATH))) {
-				event.getDrops().clear();
+			event.getDrops().clear();
+			if (!(zone.hasFlag(Flags.SAFEDEATH))) {
+				Inventory inv =  player.getInventory();
+				if(!(zone.hasFlag(Flags.DEATHDROP))){
+					for(int i = 0; i <= 36; i++) {
+						try {
+							player.getWorld().dropItem(player.getLocation(), inv.getItem(i)).setPickupDelay(40);
+						} catch (Exception a) {
+
+						}
+						try {
+							switch (i) {
+								case 0:
+									break;
+								case 1:
+									player.getWorld().dropItem(player.getLocation(), ((PlayerInventory) inv).getChestplate()).setPickupDelay(40);
+									break;
+								case 2:
+									player.getWorld().dropItem(player.getLocation(), ((PlayerInventory) inv).getLeggings()).setPickupDelay(40);
+									break;
+								case 3:
+									player.getWorld().dropItem(player.getLocation(), ((PlayerInventory) inv).getHelmet()).setPickupDelay(40);
+									break;
+							}
+						} catch (Exception d) {
+
+						}
+					}
+				}
+				player.getInventory().clear();
 			}
 
 			if (zone.hasFlag(Flags.SAFEDEATH)) {
 				safeDeath.put(player.getName(), new ItemStack[][]{player.getInventory().getArmorContents(), player.getInventory().getContents()});
 				event.setDroppedExp(0);
 				event.setKeepLevel(true);
+			}else{
+				if(!zone.hasFlag(Flags.DEATHDROP)){
+					event.setDroppedExp(Math.min(100,player.getLevel()*7));
+				}else{
+					event.setDroppedExp(0);
+				}
+				event.setKeepLevel(false);
+				player.setExp(0);
+				player.setLevel(0);
 			}
 		}
 	}

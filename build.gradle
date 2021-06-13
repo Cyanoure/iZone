@@ -32,7 +32,7 @@ repositories {
 }
 
 dependencies {
-	compile group: 'com.github.InventivetalentDev', name: 'ReflectionHelper', version:'1.14.0-SNAPSHOT'
+	compile group: 'com.github.InventivetalentDev', name: 'ReflectionHelper', version:'1.15.2-SNAPSHOT'
 	compile group: 'com.github.InventivetalentDev', name: 'ParticleAPI', version:'65b701708a'
 	compile group: 'com.github.InventiveTalentDev', name:'BossBarAPI', version:'2.4.3-SNAPSHOT'
 	compile group: 'org.spigotmc', name: 'spigot-api', version:'1.16.5-R0.1-SNAPSHOT'

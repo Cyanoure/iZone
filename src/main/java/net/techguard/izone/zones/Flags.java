@@ -1,4 +1,5 @@
 package net.techguard.izone.Zones;
+import static net.techguard.izone.Utils.Localization.I18n.tl;
 
 public enum Flags {
 	PROTECTION,
@@ -52,145 +53,145 @@ public enum Flags {
 	public String getName() {
 		if (this == PROTECTION)
 		{
-			return "Protection";
+			return tl("zone_flag_protection");
 		}
 		if (this == MONSTER)
 		{
-			return "No Monsters";
+			return tl("zone_flag_monster");
 		}
 		if (this == ANIMAL)
 		{
-			return "No Animals";
+			return tl("zone_flag_animal");
 		}
 		if (this == WELCOME)
 		{
-			return "Welcome";
+			return tl("zone_flag_welcome");
 		}
 		if (this == FAREWELL)
 		{
-			return "Farewell";
+			return tl("zone_flag_farewell");
 		}
 		if (this == HEAL)
 		{
-			return "Healing";
+			return tl("zone_flag_heal");
 		}
 		if (this == HURT)
 		{
-			return "Hurting";
+			return tl("zone_flag_hurt");
 		}
 		if (this == PVP)
 		{
-			return "PvP";
+			return tl("zone_flag_pvp");
 		}
 		if (this == CREEPER)
 		{
-			return "No Creeper";
+			return tl("zone_flag_creeper");
 		}
 		if (this == TNT)
 		{
-			return "No TNT";
+			return tl("zone_flag_tnt");
 		}
 		if (this == EXPLOSION)
 		{
-			return "No Explosions";
+			return tl("zone_flag_explosion");
 		}
 		if (this == FIRE)
 		{
-			return "No Fire";
+			return tl("zone_flag_fire");
 		}
 		if (this == RESTRICTION)
 		{
-			return "Restriction";
+			return tl("zone_flag_restriction");
 		}
 		if (this == LIGHTNING)
 		{
-			return "No Lightning";
+			return tl("zone_flag_lightning");
 		}
 		if (this == JAIL)
 		{
-			return "Jail";
+			return tl("zone_flag_jail");
 		}
 		if (this == DEATHDROP)
 		{
-			return "No Drops on Death";
+			return tl("zone_flag_deathdrop");
 		}
 		if (this == SAFEDEATH)
 		{
-			return "Keep Items/Experience on Death";
+			return tl("zone_flag_safedeath");
 		}
 		if (this == DROP)
 		{
-			return "No Drop";
+			return tl("zone_flag_drop");
 		}
 		if (this == INTERACT)
 		{
-			return "Interact";
+			return tl("zone_flag_interact");
 		}
 		if (this == ENDERMAN)
 		{
-			return "No Enderman Interaction";
+			return tl("zone_flag_enderman");
 		}
 		if (this == GOD)
 		{
-			return "Godmode";
+			return tl("zone_flag_god");
 		}
 		if (this == GAMEMODE)
 		{
-			return "Gamemode";
+			return tl("zone_flag_gamemode");
 		}
 		if (this == FLY)
 		{
-			return "Fly";
+			return tl("zone_flag_fly");
 		}
 		if (this == TAKEITEM_IN)
 		{
-			return "Take Item(In)";
+			return tl("zone_flag_takeitem_in");
 		}
 		if (this == TAKEITEM_OUT)
 		{
-			return "Take Item(Out)";
+			return tl("zone_flag_takeitem_out");
 		}
 		if (this == GIVEITEM_IN)
 		{
-			return "Give Item(In)";
+			return tl("zone_flag_giveitem_in");
 		}
 		if (this == GIVEITEM_OUT)
 		{
-			return "Give Item(Out)";
+			return tl("zone_flag_giveitem_out");
 		}
 		if (this == GIVEEFFECT_IN)
 		{
-			return "Give Effect In(In)";
+			return tl("zone_flag_giveeffect_in");
 		}
 		if (this == GIVEEFFECT_OUT)
 		{
-			return "Give Effect Out(Out)";
+			return tl("zone_flag_giveeffect_out");
 		}
 		if (this == TAKEEFFECT_IN)
 		{
-			return "Take Effect In(In)";
+			return tl("zone_flag_takeeffect_in");
 		}
 		if (this == TAKEEFFECT_OUT)
 		{
-			return "Take Effect Out(Out)";
+			return tl("zone_flag_takeeffect_out");
 		}
 		if (this == MELT)
 		{
-			return "Melt";
+			return tl("zone_flag_melt");
 		}
 		if (this == TELEPORT)
 		{
-			return "Teleport";
+			return tl("zone_flag_teleport");
 		}
 		if (this == WATER_FLOW)
 		{
-			return "Water Flow Protection";
+			return tl("zone_flag_water_flow");
 		}
 		if (this == LAVA_FLOW)
 		{
-			return "Lava Flow Protection";
+			return tl("zone_flag_lava_flow");
 		}
-		return "Unknown flag";
+		return tl("zone_flag_unknown");
 	}
 
 	public String toString() {

@@ -22,7 +22,6 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
-import org.inventivetalent.reflection.minecraft.Minecraft;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;

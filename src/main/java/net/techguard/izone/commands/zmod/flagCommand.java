@@ -232,7 +232,7 @@ public class flagCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"flag", " <zone> <flag> [flag data]", "Toggle a zone flag"};
+		return new String[]{"flag", " <"+tl("help_param_zone")+"> <"+tl("help_param_flag")+"> ["+tl("help_param_flag_data")+"]", tl("help_flag")};
 	}
 
 	public String getError(int i) {
@@ -251,9 +251,9 @@ public class flagCommand extends zmodBase {
 			if (flags.endsWith("§c, ")) {
 				flags = flags.substring(0, flags.length() - 4);
 			}
-			player.sendMessage("§cAvailable Flags: " + flags);
+			player.sendMessage("§c"+tl("available_flags")+": " + flags);
 		}
-		return "§cUsage: /zmod flag <zone> <flag>";
+		return "§c"+tl("command_usage")+": /zmod flag <"+tl("help_param_zone")+"> <"+tl("help_param_flag")+">";
 	}
 
 	public String getPermission() {

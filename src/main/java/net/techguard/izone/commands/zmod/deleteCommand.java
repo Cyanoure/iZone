@@ -60,11 +60,11 @@ public class deleteCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"delete", " <name>", "Delete a zone"};
+		return new String[]{"delete", " <"+tl("help_param_name")+">", tl("help_delete")};
 	}
 
 	public String getError(int i) {
-		return "§cUsage: /zmod delete <name>";
+		return "§c"+tl("command_usage")+": /zmod delete <"+tl("help_param_name")+">";
 	}
 
 	public String getPermission() {

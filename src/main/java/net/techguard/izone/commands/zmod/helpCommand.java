@@ -6,6 +6,8 @@ import net.techguard.izone.iZone;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
+import static net.techguard.izone.Utils.Localization.I18n.tl;
+
 /**
  * Class:
  *
@@ -49,11 +51,11 @@ public class helpCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"help", "Prints a list of Commands"};
+		return new String[]{"help", tl("help_help")};
 	}
 
 	public String getError(int i) {
-		return "§cUsage: /zmod help";
+		return "§c"+tl("command_usage")+": /zmod help";
 	}
 
 	public String getPermission() {

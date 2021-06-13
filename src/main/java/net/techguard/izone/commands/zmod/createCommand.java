@@ -92,11 +92,11 @@ public class createCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"create", " <name>", "Create a new zone"};
+		return new String[]{"create", " <"+tl("help_param_name")+">", tl("help_create")};
 	}
 
 	public String getError(int i) {
-		return "§cUsage: /zmod create <name>";
+		return "§c"+tl("command_usage")+": /zmod create <"+tl("help_param_name")+">";
 	}
 
 	public String getPermission() {

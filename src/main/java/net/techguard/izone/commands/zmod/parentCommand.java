@@ -51,11 +51,11 @@ public class parentCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"parent", " <child> <parent>", "Set a parent for a child zone"};
+		return new String[]{"parent", " <"+tl("help_param_child")+"> <"+tl("help_param_parent")+">", tl("help_parent")};
 	}
 
 	public String getError(int i) {
-		return "§cUsage: /zmod parent <child> <parent>";
+		return "§c"+tl("command_usage")+": /zmod parent <"+tl("help_param_child")+"> <"+tl("help_param_parent")+">";
 	}
 
 	public String getPermission() {

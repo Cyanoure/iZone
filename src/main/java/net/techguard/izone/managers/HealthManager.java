@@ -1,14 +1,12 @@
 package net.techguard.izone.Managers;
 
 import net.techguard.izone.Configuration.ConfigManager;
-import net.techguard.izone.iZone;
 import net.techguard.izone.Zones.Flags;
 import net.techguard.izone.Zones.Zone;
 import org.bukkit.GameMode;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.inventivetalent.reflection.minecraft.Minecraft;
 
 public class HealthManager implements Runnable {
 

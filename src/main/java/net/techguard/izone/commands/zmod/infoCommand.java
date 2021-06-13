@@ -50,7 +50,7 @@ public class infoCommand extends zmodBase {
 		}
 		else
 		{
-			player.sendMessage("§cZone not found");
+			player.sendMessage("§c"+tl("zone_not_found"));
 		}
 	}
 
@@ -59,11 +59,11 @@ public class infoCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"info", " <name>", "Prints info about the zone"};
+		return new String[]{"info", " <"+tl("help_param_name")+">", tl("help_info")};
 	}
 
 	public String getError(int i) {
-		return "§cUsage: /zmod info <name>";
+		return "§c"+tl("command_usage")+": /zmod info <"+tl("help_param_name")+">";
 	}
 
 	public String getPermission() {

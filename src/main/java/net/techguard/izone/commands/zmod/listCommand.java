@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
+import static net.techguard.izone.Utils.Localization.I18n.tl;
+
 public class listCommand extends zmodBase {
 	public listCommand(iZone instance) {
 		super(instance);
@@ -15,7 +17,7 @@ public class listCommand extends zmodBase {
 
 	public void onCommand(Player player, String[] cmd) {
 		ArrayList<Zone> zones = ZoneManager.getZones();
-		String          list  = "§bZone list(§f" + zones.size() + "§b):";
+		String          list  = "§b"+tl("zone_list")+"(§f" + zones.size() + "§b):";
 
 		for (Zone zone : zones)
 		{
@@ -39,7 +41,7 @@ public class listCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"list", "", "Prints list off all owned zones"};
+		return new String[]{"list", "", tl("help_list")};
 	}
 
 	public String getError(int i) {
