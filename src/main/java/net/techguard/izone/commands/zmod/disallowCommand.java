@@ -64,11 +64,11 @@ public class disallowCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"disallow", " <zone> <player>", "Remove player from zone list"};
+		return new String[]{"disallow", " <"+tl("help_param_zone")+"> <"+tl("help_param_player")+">", tl("help_disallow")};
 	}
 
 	public String getError(int i) {
-		return "§cUsage: /zmod disallow <zone> <player>";
+		return "§c"+tl("command_usage")+": /zmod disallow <"+tl("help_param_zone")+"> <"+tl("help_param_player")+">";
 	}
 
 	public String getPermission() {

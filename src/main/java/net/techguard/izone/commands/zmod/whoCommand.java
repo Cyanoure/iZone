@@ -43,7 +43,7 @@ public class whoCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"who", "", "List of players in your current zone"};
+		return new String[]{"who", "", tl("help_who")};
 	}
 
 	public String getError(int i) {

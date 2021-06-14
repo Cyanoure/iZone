@@ -143,11 +143,11 @@ public class expandCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"expand", " <zone> <size> <direction>", "Expand the borders up or down"};
+		return new String[]{"expand", " <"+tl("help_param_zone")+"> <"+tl("help_param_size")+"> <"+tl("help_param_direction")+">", tl("help_expand")};
 	}
 
 	public String getError(int i) {
-		return "§cUsage: /zmod expand <zone> <size> <direction>";
+		return "§c"+tl("command_usage")+": /zmod expand <"+tl("help_param_zone")+"> <"+tl("help_param_size")+"> <"+tl("help_param_direction")+">";
 	}
 
 	public String getPermission() {

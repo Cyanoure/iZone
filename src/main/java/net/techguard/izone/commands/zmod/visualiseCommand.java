@@ -49,11 +49,11 @@ public class visualiseCommand extends zmodBase {
 	}
 
 	public String[] getInfo() {
-		return new String[]{"visualise", "Shows the selected area's borders"};
+		return new String[]{"visualise", tl("help_visualise")};
 	}
 
 	public String getError(int i) {
-		return "§cUsage: /zmod visualise";
+		return "§c"+tl("command_usage")+": /zmod visualise";
 	}
 
 	public String getPermission() {
